@@ -22,5 +22,5 @@ script:
   - docker version
   # build everything
   - ./build-amd64.sh
-  #- .deploy/docker/build-arm.sh
-  #- .deploy/docker/manifest.sh
+  - ./build-arm.sh
+  - ./manifest.sh
