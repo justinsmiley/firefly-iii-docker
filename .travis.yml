@@ -21,6 +21,6 @@ script:
   - docker version -f '{{.Server.Experimental}}'
   - docker version
   # build everything
-  - build-amd64.sh
+  - ./build-amd64.sh
   #- .deploy/docker/build-arm.sh
   #- .deploy/docker/manifest.sh
