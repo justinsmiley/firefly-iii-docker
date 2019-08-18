@@ -17,7 +17,6 @@ RUN echo "hu_HU.UTF-8 UTF-8\nro_RO.UTF-8 UTF-8\nnb_NO.UTF-8 UTF-8\nde_DE.UTF-8 U
 RUN locale-gen
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer global require hirak/prestissimo --no-plugins --no-scripts
-RUN phpdismod xdebug
 
 # configure PHP
 RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini && \
