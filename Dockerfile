@@ -1,5 +1,5 @@
 FROM php:7.3-apache
-ENV FIREFLY_PATH=/var/www/firefly-iii COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 
 # Install stuff Firefly III runs with & depends on: php extensions, locales, dev headers and composer

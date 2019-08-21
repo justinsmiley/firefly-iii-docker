@@ -1,5 +1,5 @@
 FROM arm32v7/php:7.3-apache-stretch
-ENV FIREFLY_PATH=/var/www/firefly-iii COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_ALLOW_SUPERUSER=1
 COPY tmp/qemu-arm-static /usr/bin/qemu-arm-static
 
 # Install stuff Firefly III runs with & depends on: php extensions, locales, dev headers and composer
