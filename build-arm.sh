@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Build master ARM"
+
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
 # get qemu-arm-static binary
@@ -12,6 +14,5 @@ popd
 # build image
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-echo "Build master arm"
 docker build --tag jc5x/firefly-iii-base-image:latest-arm --file Dockerfile.arm .
 docker push jc5x/firefly-iii-base-image:latest-arm

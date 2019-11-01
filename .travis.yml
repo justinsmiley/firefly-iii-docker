@@ -11,16 +11,17 @@ branches:
 services:
   - docker
 
+jobs:
+  include:
+    - dist: xenial
+      arch: amd64
+      env: ARCH=amd64
+    - dist: xenial
+      arch: amd64
+      env: ARCH=arm
+    - dist: xenial
+      arch: arm64
+      env: ARCH=arm64
+
 script:
-  # enable experimental features.
-  - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
-  - mkdir $HOME/.docker
-  - touch $HOME/.docker/config.json
-  - echo '{"experimental":"enabled"}' | sudo tee $HOME/.docker/config.json
-  - sudo service docker restart
-  - docker version -f '{{.Server.Experimental}}'
-  - docker version
-  # build everything
-  - ./build-amd64.sh
-  - ./build-arm.sh
-  - ./manifest.sh
+  - ./travis.sh
