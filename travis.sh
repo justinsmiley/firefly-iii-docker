@@ -8,4 +8,3 @@ docker version
 
 # build everything
 ./build-$ARCH.sh
-./manifest.sh

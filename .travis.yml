@@ -16,12 +16,19 @@ jobs:
     - dist: xenial
       arch: amd64
       env: ARCH=amd64
+      stage: build_stuff
     - dist: xenial
       arch: amd64
       env: ARCH=arm
+      stage: build_stuff
     - dist: xenial
       arch: arm64
       env: ARCH=arm64
+      stage: build_stuff
+    - dist: xenial
+      arch: amd64
+      stage: manifest_stuff
+      script: ./manifest.sh
 
 script:
   - ./travis.sh
