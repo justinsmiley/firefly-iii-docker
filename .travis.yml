@@ -1,8 +1,6 @@
 sudo: required
 language: bash
 
-dist: xenial
-
 # safelist
 branches:
   only:
@@ -16,19 +14,19 @@ jobs:
     - dist: xenial
       arch: amd64
       env: ARCH=amd64
-      stage: build_stuff
+      stage: build
+      script: ./travis.sh
     - dist: xenial
       arch: amd64
       env: ARCH=arm
-      stage: build_stuff
+      stage: build
+      script: ./travis.sh
     - dist: xenial
       arch: arm64
       env: ARCH=arm64
-      stage: build_stuff
+      stage: build
+      script: ./travis.sh
     - dist: xenial
       arch: amd64
-      stage: manifest_stuff
+      stage: manifest
       script: ./manifest.sh
-
-script:
-  - ./travis.sh

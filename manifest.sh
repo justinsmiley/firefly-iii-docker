@@ -16,7 +16,7 @@ AMD64=jc5x/firefly-iii-base-image:latest-amd64
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-docker manifest create --amend $TARGET $ARM32 $ARM64 $AMD64
+docker manifest create $TARGET $ARM32 $ARM64 $AMD64
 docker manifest annotate $TARGET $ARM32 --arch arm   --os linux
 docker manifest annotate $TARGET $ARM64 --arch arm64 --os linux
 docker manifest annotate $TARGET $AMD64 --arch amd64 --os linux
