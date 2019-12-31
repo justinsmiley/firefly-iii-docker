@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y locales sudo unzip && apt-get clean && 
 ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
-    install-php-extensions --cleanup bcmath ldap gd pdo_pgsql pdo_sqlite pdo_mysql intl opcache memcached
+    install-php-extensions intl bcmath ldap gd pdo_pgsql pdo_sqlite pdo_mysql opcache memcached
 
 # common config
 RUN a2enmod rewrite && a2enmod ssl && \
