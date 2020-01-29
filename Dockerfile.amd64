@@ -20,11 +20,8 @@ RUN a2enmod rewrite && a2enmod ssl && \
     sed -i 's/max_execution_time = 30/max_execution_time = 600/' /usr/local/etc/php/php.ini && \
     sed -i 's/memory_limit = 128M/memory_limit = 512M/' /usr/local/etc/php/php.ini
 
-# copy ca certs to correct location
-COPY ./cacert.pem /usr/local/ssl/cert.pem
-
-# copy Apache config to correct spot.
-COPY ./apache2.conf /etc/apache2/apache2.conf
+COPY [ "./cacert.pem", "/usr/local/ssl/cert.pem" ]
+COPY [ "./apache2.conf", "/etc/apache2/apache2.conf" ]
 
 # Enable default site (Firefly III)
 COPY ./apache-firefly-iii.conf /etc/apache2/sites-available/000-default.conf
